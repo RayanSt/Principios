@@ -1,18 +1,9 @@
 import abc
 from abc import ABCMeta
 
-
-#class Coche():
-#    __marca = ""
-#
-#    def __init__(self,marca):
-#        self.__marca = marca
-#
-#    def getMarca(self):
-#        return  self.__marca
-
-
-
+#sustitucion de liscov
+#open/close
+#reponsabilidad unica
 
 
 class CocheBD(object):
@@ -20,40 +11,55 @@ class CocheBD(object):
     def GuardarDato(self, nombre):
         self.nombre = nombre
 
-
-
     def EliminarDato(self):
         self.nombre = ""
 
 
-
 class Coche(object):
     __metaclass__ = ABCMeta
+    __marca = ""
+
+    def __init__(self,marca):
+        self.__marca = marca
+
+    def getMarca(self):
+        return  self.__marca
+
+
     @abc.abstractmethod
     def precioMedioCoche(self):
         pass
 
 
 class Renault(Coche):
+    def __init__(self):
+        super().__init__('Renualt')
+
     def precioMedioCoche(self):
         return 18000
 
 
 class Audi (Coche):
+    def __init__(self):
+        super().__init__('Audi')
+
     def precioMedioCoche(self):
         return 25000
 
 
 class Mercedes(Coche):
+    def __init__(self):
+        super().__init__('Mercedes')
+
     def precioMedioCoche(self):
         return 27000
 
-def imprimirPrecioMedioCoche(arrayCoches):
-        print(str(arrayCoches.precioMedioCoche()))
+def imprimirCoche(arrayCoches):
+    for i in arrayCoches:
+        print(str(i.precioMedioCoche())+" "+i.getMarca())
 
 arrayCoches = [ Renault(), Audi(), Mercedes() ]
-print(Renault.precioMedioCoche())
-#imprimirPrecioMedioCoche(arrayCoches);
+imprimirCoche(arrayCoches);
 
 
 
