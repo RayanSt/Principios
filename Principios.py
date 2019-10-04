@@ -6,7 +6,7 @@ from abc import ABCMeta
 #reponsabilidad unica
 
 
-class CocheBD(object):
+class CasaBD(object):
     nombre = ""
     def GuardarDato(self, nombre):
         self.nombre = nombre
@@ -15,51 +15,51 @@ class CocheBD(object):
         self.nombre = ""
 
 
-class Coche(object):
+class Casa(object):
     __metaclass__ = ABCMeta
-    __marca = ""
+    __nombre = ""
 
-    def __init__(self,marca):
-        self.__marca = marca
+    def __init__(self,nombre):
+        self.__marca = nombre
 
-    def getMarca(self):
-        return  self.__marca
+    def getNombre(self):
+        return  self.__nombre
 
 
     @abc.abstractmethod
-    def precioMedioCoche(self):
+    def precioMedioCasa(self):
         pass
 
 
-class Renault(Coche):
+class CasaQuinta(Casa):
     def __init__(self):
-        super().__init__('Renualt')
+        super().__init__('Casa Quinta')
 
-    def precioMedioCoche(self):
-        return 18000
+    def precioMedioCasa(self):
+        return 700000000
 
 
-class Audi (Coche):
+class Finca(Casa):
     def __init__(self):
-        super().__init__('Audi')
+        super().__init__('Finca')
 
-    def precioMedioCoche(self):
-        return 25000
+    def precioMedioCasa(self):
+        return 300000000
 
 
-class Mercedes(Coche):
+class Apartamento(Casa):
     def __init__(self):
-        super().__init__('Mercedes')
+        super().__init__('Apartamento')
 
-    def precioMedioCoche(self):
-        return 27000
+    def precioMedioCasa(self):
+        return 200000000
 
-def imprimirCoche(arrayCoches):
-    for i in arrayCoches:
-        print(str(i.precioMedioCoche())+" "+i.getMarca())
+def imprimirCasa(arrayCasas):
+    for i in arrayCasas:
+        print(str(i.precioMedioCasa())+" "+i.getNombre())
 
-arrayCoches = [ Renault(), Audi(), Mercedes() ]
-imprimirCoche(arrayCoches);
+arrayCasas = [ CasaQuinta(), Finca(), Apartamento() ]
+imprimirCasa(arrayCasas);
 
 
 
