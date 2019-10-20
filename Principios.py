@@ -20,7 +20,7 @@ class Casa(object):
     __nombre = ""
 
     def __init__(self,nombre):
-        self.__marca = nombre
+        self.__nombre = nombre
 
     def getNombre(self):
         return  self.__nombre
